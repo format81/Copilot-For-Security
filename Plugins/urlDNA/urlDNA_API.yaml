@@ -1,28 +1,43 @@
 openapi: 3.0.0
 info:
-    title: URLDNA URL Scan API
-    description: Initiate URL scans and retrieve scan results from the URLDNA service.
-    version: "v1"
-
+  title: URLDNA URL Scan API
+  description: Initiate URL scans and retrieve scan results from the URLDNA service.
+  version: 1.0.0
 servers:
-    - url: https://api.urldna.io/
-
+  - url: https://api.urldna.io
 paths:
-    /scan:
-        post:
-            operationId: URLDNAUrlSubmission
-            summary: Submit a URL for scanning
-            requestBody:
-              required: true
-              content:
-                application/json:
-                  schema:
-                    type: object
-                    properties:
-                      url_data:
-                        type: string
-                        description: URL information provided by the application.
-                        example: "This contains the submitted URL added by the application."
-            responses:
-                "200":
-                    description: URL scan submitted successfully
+  /scan:
+    post:
+      summary: Submit a URL for scanning
+      operationId: submitUrlScan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                submitted_url:
+                  type: string
+                  example: "https://www.repubblica.it/"
+      responses:
+        '200':
+          description: Scan successfully submitted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "67019ca2029a0176715e1621"
+                  status:
+                    type: string
+                    example: "PENDING"
+                  submitted_date:
+                    type: string
+                    example: "2024-10-05T20:08:02.663491"
+        '400':
+          description: Bad request - invalid URL or missing parameters
+        '401':
+          description: Unauthorized - invalid API token

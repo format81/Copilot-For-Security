@@ -23,21 +23,3 @@ paths:
       responses:
         '200':
           description: Scan successfully submitted
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    example: "67019ca2029a0176715e1621"
-                  status:
-                    type: string
-                    example: "PENDING"
-                  submitted_date:
-                    type: string
-                    example: "2024-10-05T20:08:02.663491"
-        '400':
-          description: Bad request - invalid URL or missing parameters
-        '401':
-          description: Unauthorized - invalid API token

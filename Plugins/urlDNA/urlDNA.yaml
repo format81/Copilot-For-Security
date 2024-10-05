@@ -6,7 +6,7 @@ Descriptor:
     - ApiKey
   Authorization:
     Type: APIKey
-    Key: APIKey
+    Key: Authorization
     Location: Header
     AuthScheme: ''
   

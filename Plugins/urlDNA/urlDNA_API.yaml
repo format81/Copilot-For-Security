@@ -12,72 +12,13 @@ paths:
     post:
       operationId: initiateUrlScan
       summary: Initiate a scan for a given URL
-      requestBody:
-        description: Submit a URL to initiate the scan.
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                submitted_url:
-                  type: string
-                  description: The URL to be scanned.
-      responses:
-        "200":
-          description: Scan initiated successfully.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Scan ID to track the scan status.
-                  status:
-                    type: string
-                    description: Status of the scan.
-                  submitted_date:
-                    type: string
-                    description: Date when the scan was submitted.
-        "400":
-          description: Invalid URL provided.
-        "401":
-          description: Unauthorized - API key is invalid.
-        "500":
-          description: Internal server error.
-
-  /scan/{id}:
-    get:
-      operationId: getScanStatus
-      summary: Retrieve the scan result by Scan ID
       parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            description: The scan ID to retrieve the status.
-      responses:
-        "200":
-          description: Scan result retrieved successfully.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Scan ID
-                  status:
-                    type: string
-                    description: Current status of the scan (PENDING, COMPLETED)
-                  report:
-                    type: object
-                    description: Detailed scan report (if available).
-        "404":
-          description: Scan ID not found.
-        "401":
-          description: Unauthorized - API key is invalid.
-        "500":
-          description: Internal server error.
+                - in: query
+                  name: url
+                  schema:
+                      type: string
+                  required: true
+                  description: Submit a URL to initiate the scan.
+            responses:
+                "200":
+                    description: OK

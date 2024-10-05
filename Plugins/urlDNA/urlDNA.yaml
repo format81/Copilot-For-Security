@@ -1,0 +1,16 @@
+Descriptor:
+  Name: URLDNA Scan Plugin
+  DisplayName: URLDNA Scan URL Reputation
+  Description: This plugin scans URLs for reputation or threat information using the URLDNA API.
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: APIKey
+    Location: Header
+    AuthScheme: ''
+  
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://your-openapi-spec-url-here/openapi.yaml

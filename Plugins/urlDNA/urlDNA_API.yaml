@@ -19,7 +19,6 @@ paths:
               properties:
                 submitted_url:
                   type: string
-                  example: "https://www.repubblica.it/"
       responses:
         '200':
           description: Scan successfully submitted

@@ -9,7 +9,7 @@ Descriptor:
     Type: APIKey
     Key: Authorization
     Location: Header
-    AuthScheme: 'Bearer'
+    AuthScheme: ''
 
 SkillGroups:
   - Format: API

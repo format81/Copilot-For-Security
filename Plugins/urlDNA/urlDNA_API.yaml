@@ -71,7 +71,7 @@ paths:
                     description: Scan ID
                   status:
                     type: string
-                    description: Status of the scan (e.g., PENDING, COMPLETED)
+                    description: Current status of the scan (PENDING, COMPLETED)
                   report:
                     type: object
                     description: Detailed scan report (if available).
@@ -81,31 +81,3 @@ paths:
           description: Unauthorized - API key is invalid.
         "500":
           description: Internal server error.
-
-components:
-  schemas:
-    ScanInitiateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique ID for the initiated scan.
-        status:
-          type: string
-          description: Initial status of the scan (PENDING).
-        submitted_date:
-          type: string
-          description: Date the scan was submitted.
-    
-    ScanStatusResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID of the scan.
-        status:
-          type: string
-          description: Current status of the scan.
-        report:
-          type: object
-          description: Detailed scan report (if available).

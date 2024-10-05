@@ -19,6 +19,7 @@ paths:
               properties:
                 submitted_url:
                   type: string
+                  description: The URL to be scanned
       responses:
         '200':
           description: Scan successfully submitted

@@ -1,24 +1,70 @@
 openapi: 3.0.0
 info:
-  title: URLDNA Scan API
-  description: Plugin to initiate URL scans and retrieve scan status from the URLDNA service.
-  version: "v1"
+    title: URLDNA URL Scan API
+    description: Initiate URL scans and retrieve scan results from the URLDNA service.
+    version: "v1"
 
 servers:
-  - url: https://api.urldna.io
+    - url: https://api.urldna.io
 
 paths:
-  /scan:
-    post:
-      operationId: initiateUrlScan
-      summary: Initiate a scan for a given URL
-      parameters:
+    /scan:
+        post:
+            operationId: URLDNAUrlSubmission
+            summary: Submit a URL for scanning
+            parameters:
                 - in: query
-                  name: url
+                  name: submitted_url
                   schema:
                       type: string
                   required: true
-                  description: Submit a URL to initiate the scan.
+                  description: The URL to submit for scanning
             responses:
                 "200":
                     description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    id:
+                                        type: string
+                                        description: Scan ID to retrieve the results.
+                                    status:
+                                        type: string
+                                        description: The initial status of the scan (e.g., PENDING).
+                                    submitted_date:
+                                        type: string
+                                        description: Date when the scan was submitted.
+                "400":
+                    description: Bad Request - Invalid URL
+                "401":
+                    description: Unauthorized - Invalid API Key
+                "500":
+                    description: Internal Server Error
+
+    /scan/{id}:
+        get:
+            operationId: URLDNAGetScanResult
+            summary: Retrieve scan result by ID
+            parameters:
+                - in: path
+                  name: id
+                  schema:
+                      type: string
+                  required: true
+                  description: The scan ID to retrieve the result.
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    id:
+                                        type: string
+                                        description: Scan ID
+                                    status:
+                                        type: string
+                                        description: The current status of the sc

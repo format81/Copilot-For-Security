@@ -3,15 +3,6 @@ Descriptor:
   DisplayName: URLDNA URL Scan Plugin (Community release)
   Description: Skills to submit a URL for scanning and retrieve the scan results from the URLDNA service.
 
-  Settings:
-    - Name: URLDNAApiUrl
-      Label: URLDNA API URL for Scan Requests
-      Description: The URL of the URLDNA API for submitting URLs for scanning. Include the base URL of the API.
-      HintText: "https://api.urldna.io/"
-      DefaultValue: "https://api.urldna.io/"
-      SettingType: String
-      Required: true
-
   SupportedAuthTypes:
     - ApiKey
   Authorization:
@@ -24,4 +15,3 @@ SkillGroups:
   - Format: API
     Settings:
       OpenApiSpecUrl: https://raw.githubusercontent.com/format81/Copilot-For-Security/refs/heads/main/Plugins/urlDNA/urlDNA_API.yaml
-      EndpointUrlSettingName: URLDNAApiUrl

@@ -13,4 +13,4 @@ Descriptor:
 SkillGroups:
   - Format: API
     Settings:
-      OpenApiSpecUrl: https://your-openapi-spec-url-here/openapi.yaml
+      OpenApiSpecUrl: https://raw.githubusercontent.com/format81/Copilot-For-Security/refs/heads/main/Plugins/urlDNA/urlDNA_API.yaml

@@ -7,8 +7,8 @@ Descriptor:
     - Name: URLDNAApiUrl
       Label: URLDNA API URL for Scan Requests
       Description: The URL of the URLDNA API for submitting URLs for scanning. Include the base URL of the API.
-      HintText: "https://api.urldna.io/scan"
-      DefaultValue: "https://api.urldna.io/scan"
+      HintText: "https://api.urldna.io/"
+      DefaultValue: "https://api.urldna.io/"
       SettingType: String
       Required: true
 

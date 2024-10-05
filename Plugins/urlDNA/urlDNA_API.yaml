@@ -12,13 +12,17 @@ paths:
         post:
             operationId: URLDNAUrlSubmission
             summary: Submit a URL for scanning
-            parameters:
-                - in: query
-                  name: submitted_url
+            requestBody:
+              required: true
+              content:
+                application/json:
                   schema:
-                      type: string
-                  required: true
-                  description: The URL to submit for scanning
+                    type: object
+                    properties:
+                      url_data:
+                        type: string
+                        description: URL information provided by the application.
+                        example: "This contains the submitted URL added by the application."
             responses:
                 "200":
-                    description: OK
+                    description: URL scan submitted successfully

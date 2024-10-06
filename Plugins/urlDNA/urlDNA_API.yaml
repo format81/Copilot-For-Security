@@ -28,10 +28,20 @@ paths:
               schema:
                 type: object
                 properties:
-                  scan_id:
+                  id:
                     type: string
-                    description: The unique identifier for the scan
+                    description: Unique identifier for the scan
+                    example: "65f87d19f8303a5d2cad587a"
+                  status:
+                    type: string
+                    description: Current status of the scan
+                    enum: [PENDING, RUNNING, DONE, ERROR]
+                    example: "PENDING"
+                  submitted_date:
+                    type: string
+                    description: Date and time the scan was submitted (UTC format)
+                    example: "2024-03-18T17:42:49.090915"
         '400':
-          description: Invalid input
-        '500':
-          description: Internal server error
+          description: Invalid URL submission
+        '401':
+          description: Unauthorized request, invalid API key

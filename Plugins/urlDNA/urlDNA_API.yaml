@@ -2,9 +2,9 @@ openapi: 3.0.0
 info:
   title: URLDNA URL Scan API
   description: Initiate URL scans and retrieve scan results from the URLDNA service.
-  version: 1.0.0
+  version: "v1"
 servers:
-  - url: https://api.urldna.io
+  - url: https://api.urldna.io/
 paths:
   /scan:
     post:
@@ -23,3 +23,15 @@ paths:
       responses:
         '200':
           description: Scan successfully submitted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scan_id:
+                    type: string
+                    description: The unique identifier for the scan
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error

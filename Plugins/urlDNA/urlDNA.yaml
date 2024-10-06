@@ -1,7 +1,7 @@
 Descriptor:
-  Name: URLDNA URL Scan
-  DisplayName: URLDNA URL Scan Plugin (Community release)
-  Description: Skills to submit a URL for scanning and retrieve the scan results from the URLDNA service.
+  Name: urlDNA URL Scan
+  DisplayName: urlDNA URL Scan Plugin
+  Description: Skills to submit a URL for scanning and retrieve the scan results from the urlDNA service.
 
   SupportedAuthTypes:
     - ApiKey
@@ -9,7 +9,7 @@ Descriptor:
     Type: APIKey
     Key: Authorization
     Location: Header
-    AuthScheme: ''
+    AuthScheme: 'Bearer'
 
 SkillGroups:
   - Format: API

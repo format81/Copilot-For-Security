@@ -4,7 +4,7 @@ info:
   description: Initiate URL scans and retrieve scan results from the URLDNA service.
   version: "v1"
 servers:
-  - url: https://api.urldna.io/
+  - url: https://api.urldna.io
 paths:
   /scan:
     post:
